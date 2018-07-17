@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scroll</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		div{
+			margin: 0 auto;
+			text-align: center;
+		}
+		button{
+			background-color: transparent;
+			border:none;
+			margin-top: 20px
+		}
+		
+		button:focus{
+			outline: none;
+		}
+		button i:hover{
+			opacity: 0.3;
+    		transition: opacity .7s;
+ 
+		}
+	</style>
+</head>
+
+<body>
+	<div style="background-color:#ffc300 ; height: 400px">
+		<button id="but" onclick="downScroll()"><i class="fa fa-arrow-down fa-5x" aria-hidden="true"></i></button>
+		
+	</div>
+	<div style="height: 300px; background-color: #ff5733"></div>
+	<div id="showScroll" style="height: 380px; background-color:#c70039 "></div>
+	<div style="height: 300px; background-color: #900c3f; position: relative;">
+		<button id="but2" onclick="upScroll()" style="position: absolute;
+    bottom: 0;"><i class="fa fa-arrow-up fa-5x" aria-hidden="true"></i></button>
+		
+	</div>
+
+	
+	<script type="text/javascript">
+		
+		
+		// window.onscroll = function() {
+  // 			var scrolled = window.pageYOffset;
+  // 			document.getElementById('showScroll').innerHTML = scrolled + 'px';
+		// }
+		
+
+		function downScroll(){
+			var down = setInterval(function(){window.scrollBy(0,7)
+				if(window.pageYOffset>=window.outerHeight){
+					clearInterval(down)
+				}
+			},50)
+		}
+
+		function upScroll(){
+			var up = setInterval(function(){window.scrollBy(0,-10)
+			if(window.pageYOffset<=0){
+					clearInterval(up)
+				}
+			}, 20)
+		}
+
+		
+		Object.prototype.down = function(){
+			this.down = downScroll() 
+		};
+		Object.prototype.up = function(){
+			this.up = upScroll() 
+		};
+		
+
+
+		
+	</script>
+
+
+
+</body>
+</html>
